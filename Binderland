@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINDERLAND KELOMPOK 9 XIIJ - Toko Binder Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght%40300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5a2e9b; /* Ungu Utama */
+            --primary-light: #6a3dae; /* Ungu Muda */
+            --secondary-color: #ff6347; /* Tomat/Aksen Cerah */
+            --gradient-start: #7f52b6; /* Gradien Baru */
+            --gradient-end: #5a2e9b; /* Gradien Baru */
+            --light-bg: #f0f2f5;
+            --dark-bg: #333;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --hero-text-color: #f7f7f7;
+            /* New Gradient for Header */
+            --header-gradient-start: #8a2be2; /* Blue-Violet */
+            --header-gradient-end: #4b0082; /* Indigo */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            /* Perubahan: Mengubah warna header agar lebih menonjol */
+            background: linear-gradient(135deg, var(--header-gradient-start), var(--header-gradient-end));
+            color: var(--card-bg);
+            padding: 2.5rem 0; /* Padding sedikit lebih besar */
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Shadow lebih kuat */
+            position: relative; /* Untuk efek garis di bawah */
+            overflow: hidden; /* Untuk menjaga elemen dalam batas */
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 3rem; /* Lebih besar */
+            font-weight: 900; /* Dibuat sangat tebal */
+            letter-spacing: 3px;
+            /* Perubahan: Efek bayangan teks yang lebih baik */
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.5); 
+        }
+        
+        header p {
+            margin: 0.5rem 0 0;
+            font-weight: 400;
+            font-size: 1.2rem; /* Lebih besar */
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Style untuk nama anggota kelompok */
+        .group-members {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: var(--primary-light); /* Ungu Muda untuk Nav */
+            padding: 0.8rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav a {
+            color: var(--card-bg);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a.active {
+            background-color: #6a3dae;
+            font-weight: 600;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        nav a:hover {
+            background-color: #9b72cf; /* Perubahan: Lebih cerah saat hover untuk kontras yang lebih baik */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            min-height: 70vh;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.8s forwards;
+            padding: 0; /* Padding dipindahkan ke dalam container */
+            border-radius: 12px;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* --- HERO SECTION REVISION --- */
+        #home-page {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            padding: 3rem; /* Padding lebih besar */
+            border-radius: 12px;
+            color: var(--hero-text-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-text h2 {
+            font-size: 3rem; /* Lebih besar */
+            color: var(--card-bg);
+            margin-top: 0;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+        
+        /* Penambahan untuk teks blindbox */
+        .blindbox-note {
+            background-color: rgba(255, 99, 71, 0.8); /* Warna tomat/secondary yang sedikit transparan */
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--card-bg);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px; /* Radius lebih besar */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+
+        .button {
+            background-color: var(--secondary-color);
+            color: var(--card-bg);
+            padding: 1rem 2.5rem; /* Padding lebih besar */
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700; /* Lebih tebal */
+            display: inline-block;
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .button:hover {
+            transform: translateY(-5px); /* Efek naik lebih jauh */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background-color: #ff4a27; /* Warna hover sedikit berbeda */
+        }
+        
+        /* Gaya baru untuk tombol Instagram */
+        .instagram-button {
+            background-color: #E1306C; /* Warna Instagram */
+            margin-left: 1rem; /* Jarak dari tombol Telusuri Koleksi */
+            padding: 1rem 1.5rem; /* Padding lebih kecil sedikit */
+            font-size: 1rem;
+            /* Pastikan gaya hover tetap konsisten */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .instagram-button:hover {
+            background-color: #C135A3; /* Warna sedikit gelap saat hover */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Mengatur tata letak tombol di hero section */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap; /* Agar responsif */
+        }
+        /* --- END OF HERO SECTION REVISION --- */
+
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem; /* Tambah padding */
+            background-color: #fff;
+            border-radius: 12px;
+        }
+
+        .product {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* Shadow lebih menonjol */
+        }
+
+        .product h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            max-height: 200px; /* Batasi tinggi gambar produk */
+            object-fit: cover;
+        }
+        
+        .product img:hover {
+            transform: scale(1.03);
+        }
+
+        .price {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .cart-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            border: 2px dashed var(--primary-light); /* Warna border keranjang diperbarui */
+            background-color: #fcfcff;
+            border-radius: 12px;
+            display: none;
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        .cart-container.show {
+            display: block;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .cart-item-info span:first-child {
+            font-weight: 500;
+            margin-right: 1rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 1rem;
+        }
+
+        .quantity-controls button {
+            background-color: var(--light-bg);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: var(--primary-color);
+            font-weight: 700;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .quantity-controls button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .cart-item-subtotal {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .cart-item .remove-btn {
+            background: none;
+            border: none;
+            color: #d32f2f;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: color 0.2s ease;
+        }
+        
+        .cart-item .remove-btn:hover {
+            color: #ff1744;
+        }
+
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: right;
+            color: var(--primary-color);
+        }
+        
+        .cart-checkout-button {
+            background-color: var(--primary-color);
+            color: var(--card-bg);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .cart-checkout-button:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .checkout-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .checkout-form {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .checkout-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .checkout-form input, .checkout-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .checkout-form input:focus, .checkout-form textarea:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 99, 71, 0.5);
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-direction: row; /* Ubah menjadi horizontal untuk desktop */
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
+
+        .payment-options h2 {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .payment-option {
+            flex: 1; /* Agar rata lebar */
+            background-color: var(--light-bg);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .payment-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            border-color: var(--secondary-color);
+        }
+        
+        .payment-option h3 {
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .payment-option p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+            min-height: 40px; /* Jaga konsistensi tinggi */
+        }
+        
+        .payment-button {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--card-bg);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* New styles for Toast Notification */
+        .toast-notification {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .toast-notification.show {
+            visibility: visible;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+        }
+        
+        @keyframes fadeIn {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeOut {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+
+        /* --- STYLES FOR THE CUSTOM CONFIRM MODAL --- */
+        .modal-overlay {
+            display: none; /* Hide by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInModal 0.3s forwards;
+        }
+        
+        .modal {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.95);
+            animation: scaleIn 0.3s forwards;
+        }
+
+        .modal h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .modal p {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .modal-buttons button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .modal-buttons button:hover {
+            transform: translateY(-2px);
+        }
+
+        .modal-buttons .confirm-btn {
+            background-color: #e53935; /* Merah untuk hapus */
+            color: white;
+        }
+
+        .modal-buttons .cancel-btn {
+            background-color: #e0e0e0;
+            color: var(--text-color);
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.95); }
+            to { transform: scale(1); }
+        }
+        /* --- END OF MODAL STYLES --- */
+
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 0; /* Hapus padding container utama di mobile */
+            }
+
+            #home-page {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem; /* Ukuran lebih adaptif di mobile */
+                letter-spacing: 2px;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .hero-section {
+                flex-direction: column;
+            }
+            .hero-text h2 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .hero-text p {
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center; /* Pusatkan tombol di mobile */
+            }
+            .button, .instagram-button {
+                width: 100%; /* Lebar tombol disesuaikan */
+                margin: 0.5rem 0;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .payment-options {
+                flex-direction: column;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BINDERLAND KELOMPOK9 XIIJ ✨</h1>
+        <p>Solusi Terbaik untuk Kerapian dan Gaya Estetik! 💜</p>
+        <p class="group-members">Anggota: Abdul Harist, Bunga Risya, M. Rafiudin</p>
+    </header>
+
+    <nav>
+        <a id="nav-home" onclick="showSection('home')" role="button" class="active">Beranda</a>
+        <a id="nav-products" onclick="showSection('products')" role="button">Produk</a>
+        <a id="nav-checkout" onclick="showSection('checkout')" role="button">Checkout</a>
+    </nav>
+
+    <main class="container">
+        
+        <section id="home-page" class="content-section active">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h2>Kendalikan Kerapianmu dengan Sentuhan Gaya! 💜</h2>
+                    <p>Selamat datang di **BINDERLAND**—surga bagi para pecinta kerapian dan desain estetis. Kami percaya bahwa binder bukan hanya sekadar alat untuk menyimpan kertas, tapi juga cerminan dari kepribadianmu. Dari binder kulit yang elegan hingga binder pastel yang ceria, kami memiliki semuanya.</p>
+                    <p>Setiap binder dari BINDERLAND dirancang dengan material berkualitas tinggi, menjamin daya tahan luar biasa untuk penggunaan jangka panjang. Dengan harga yang super terjangkau, kamu bisa tampil rapi, terorganisir, dan tetap hemat. Jangan biarkan kertas-kertasmu berserakan, saatnya upgrade gaya belajarmu dengan koleksi binder premium kami!</p>
+                    
+                    <div class="blindbox-note">
+                        ⚠️ **PERHATIAN: Barang berupa Blindbox!** Warna, motif, atau variasi akan **dikirim secara acak** tergantung ketersediaan stok. Membeli berarti setuju!
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a onclick="showSection('products')" class="button" role="button">Telusuri Koleksi Kami Sekarang! ✨</a>
+                        <button class="button instagram-button" onclick="goToInstagram()">Kunjungi Instagram Kami 📸</button>
+                    </div>
+
+                </div>
+                <div class="hero-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrPr-hB1UD2HohSdvG2VEZNUtv9RT1mlOocw&s" alt="Koleksi binder berwarna-warni di atas meja kerja." loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="products-page" class="content-section">
+            <h2 style="text-align: center; color: var(--primary-color); font-weight: 700;">Pilih Binder Impianmu! 📚</h2>
+            <p style="text-align: center;">Jelajahi berbagai pilihan binder dan alat tulis kami. Setiap produk diciptakan untuk memenuhi kebutuhan dan seleramu yang unik.</p>
+            <div class="product-grid">
+
+                <article class="product">
+                    <h3>Binder Note Transparan Hitam</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQsgLIz3dPrcnGa9KX-p1nMaVQdL8Frc1K4r50-NEE-WmlmMM0YIDj3SV1qBO4IUl0W_OWaD2KY1u8HfXNaJCiCbEXofvUxmRNq0Ik2cOfqYAx417Zy6EiFVQ" alt="Binder transparan hitam dengan ring metal." loading="lazy">
+                    <p>Binder ini cocok untuk tampilan profesional dan klasik.</p>
+                    <div class="price">Rp 20.000</div>
+                    <button class="button" onclick="addToCart('Binder Note Transparan Hitam', 20000)">Tambah ke Keranjang</button>
+                </article>
+
+                <article class="product">
+                    <h3>Binder Photocard Holder</h3>
+                    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTNgTsIZADyiRTByVpNYjSWW6REBQBGgkW02FpIDmuxfLHEouuPLKE0KpipgEma4OZkq-HVBCu5nbkYsZs8MpdFfA1wxspoHTGRIHyz3BQ" alt="Binder B5 dengan warna-warna pastel yang cerah dan menggemaskan." loading="lazy">
+                    <p>Binder B5 dengan warna-warna pastel yang cerah dan menggemaskan. Buat harimu lebih berwarna!</p>
+                    <div class="price">Rp 15.000</div>
+                    <button class="button" onclick="addToCart('Binder Photocard Holder', 15000)">Tambah ke Keranjang</button>
+                </article>
+
+                <article class="product">
+                    <h3>Binder Transparan Multifungsi</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSKMA--1o_2zd1x2aVTDvYZBB02Ex8UcyLad0PInWciqFrmZJpOZ-tFIOeXNtl9A2nvtHWWB2UGJgiSTwX1KLAjoXu-pZJ4TfCG8rvvsAX5" alt="Binder ring bening yang ringan dan fleksibel." loading="lazy">
+                    <p>Binder ring bening yang ringan dan fleksibel, ideal untuk menyimpan catatan dan dokumen penting.</p>
+                    <div class="price">Rp 15.000</div>
+                    <button class="button" onclick="addToCart('Binder Transparan Multifungsi', 15000)">Tambah ke Keranjang</button>
+                </article>
+                
+                <article class="product">
+                    <h3>Pena Gel Jelly Warna Hitam Ballpoint Aesthetic</h3>
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSTM11K14kEsSBX3tY2a5sSFkd6A6UcSbUXeYuANwBDo4c66sJeXm9DoxiyCWIiwsBlUvspXm6g_Ovf2BCJbLbyPf766ojPB2RUno8amIqr" alt="Pulpen tinta gel warna hitam." loading="lazy">
+                    <p>Pulpen gel dengan tinta hitam pekat, ujung 0.5mm. Menulis jadi lebih halus dan rapi.</p>
+                    <div class="price">Rp 5.000</div>
+                    <button class="button" onclick="addToCart('Pulpen Gel Hitam', 5000)">Tambah ke Keranjang</button>
+                </article>
+                
+                <article class="product">
+                    <h3>Gel Pen Pulpen pena Gel Retractable 4 Warna 0.5mm</h3>
+                    <img src="https://images.tokopedia.net/img/cache/700/o3syd0/1997/1/1/5ca27c23dd3d4a12862080daf22db6d3~.jpeg" alt="Satu set pulpen warna-warni." loading="lazy">
+                    <p>Satu set pulpen tinta warna warni. Cocok untuk membuat catatan lebih menarik.</p>
+                    <div class="price">Rp 5.000</div>
+                    <button class="button" onclick="addToCart('Pulpen Tinta Warna Warni', 5000)">Tambah ke Keranjang</button>
+                </article>
+                
+                <article class="product">
+                    <h3>Pulpen gEL Aesthetic</h3>
+                    <img src="https://images.tokopedia.net/img/cache/500-square/o3syd0/1997/1/1/759582cc0f604ba886194f84741979d0~.jpeg" alt="Pulpen standar Joyko." loading="lazy">
+                    <p>Pulpen standar Joyko dengan tinta berkualitas. Pilihan klasik untuk menulis sehari-hari.</p>
+                    <div class="price">Rp 5.000</div>
+                    <button class="button" onclick="addToCart('Pulpen Standar Joyko', 5000)">Tambah ke Keranjang</button>
+                </article>
+
+                <article class="product">
+                    <h3>Stabilo Pastel swiming cool</h3>
+                    <img src="https://down-id.img.susercontent.com/file/0a95cf3a5c0b017d47b3feb963921d5d" alt="Satu set stabilo dengan warna pastel." loading="lazy">
+                    <p>Satu set stabilo dengan warna-warna pastel yang lembut. Membuat catatanmu lebih indah.</p>
+                    <div class="price">Rp 5.000</div>
+                    <button class="button" onclick="addToCart('Stabilo Pastel Set', 5000)">Tambah ke Keranjang</button>
+                </article>
+
+                <article class="product">
+                    <h3>Stabilo Pastel Swing Cool</h3>
+                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-7991177/stabilo_stabilo_full01.jpg" alt="Satu set stabilo dengan warna cerah." loading="lazy">
+                    <p>Satu set stabilo dengan warna-warna cerah dan mencolok untuk menyoroti poin-poin penting.</p>
+                    <div class="price">Rp 5.000</div>
+                    <button class="button" onclick="addToCart('Stabilo Warna Cerah', 5000)">Tambah ke Keranjang</button>
+                </article>
+
+                <article class="product">
+                    <h3>Stabilo Aimilo Set</h3>
+                    <img src="https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/213e20a5afbb400a8fe88f61f317481b~tplv-o3syd03w52-resize-jpeg:800:800.jpeg?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my2&from=1826719393" alt="Satu set stabilo Boss." loading="lazy">
+                    <p>Stabilo Boss original, kualitas premium dan awet. Wajib punya untuk highlight.</p>
+                    <div class="price">Rp 10.000</div>
+                    <button class="button" onclick="addToCart('Stabilo Boss Set', 10000)">Tambah ke Keranjang</button>
+                </article>
+
+            </div>
+            
+            <div id="cart-section" class="cart-container">
+                <h2>Keranjang Belanja Anda 🛍️</h2>
+                <div id="cart-items"></div>
+                <div id="cart-total" class="cart-total">Total: Rp 0</div>
+                <button class="cart-checkout-button" onclick="showSection('checkout')">Lanjutkan ke Pembayaran</button>
+            </div>
+        </section>
+
+        <section id="checkout-page" class="content-section">
+            <div class="checkout-section">
+                <h2>Selesaikan Pesanan Anda! 💸</h2>
+                <div class="checkout-form">
+                    <h3>Lengkapi Data Diri</h3>
+                    <form id="order-form">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Contoh: Bunga Risya" required>
+                        
+                        <label for="telepon">Nomor Telepon (WhatsApp)</label>
+                        <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 081234567890" required>
+                        
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea id="alamat" name="alamat" rows="3" placeholder="Contoh: Jl. Mawar No. 15, RT 05/RW 02, Kel. Sudirman, Kec. Jatiasih" required></textarea>
+                        
+                        <div id="checkout-summary">
+                            <h3>Ringkasan Pesanan</h3>
+                            <div id="checkout-items"></div>
+                            <div id="checkout-total" class="cart-total">Total: **Rp 0**</div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="payment-options">
+                    <h2>Pilih Metode Pembayaran</h2>
+                    <div class="payment-option" id="dana-option" onclick="processOrder('dana')">
+                        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Logo_DANA_Horizontal.svg/2560px-Logo_DANA_Horizontal.svg.png" alt="DANA Icon" width="50" style="vertical-align: middle; margin-bottom: 0.5rem; display: block; margin: 0 auto 0.5rem;"> Bayar via DANA</h3>
+                        <p>Pembayaran via e-wallet DANA. *Konfirmasi pesanan dan transfer ke WA Admin.*</p>
+                        <button class="button payment-button">Lanjutkan ke WhatsApp</button>
+                    </div>
+
+                    <div class="payment-option" id="cash-option" onclick="processOrder('cash')">
+                        <h3><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQ7FvVSeBwhhfXvVNqjHuvS3t1LCbfZ2JsQ&s" alt="Cash Icon" width="24" style="vertical-align: middle;"> Bayar di Tempat (Cash)</h3>
+                        <p>Pembayaran tunai saat barang diterima (khusus area tertentu/COD).</p>
+                        <button class="button payment-button">Lanjutkan ke WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="cancel-modal" class="modal">
+            <h3>Konfirmasi Penghapusan</h3>
+            <p id="modal-text">Apakah Anda yakin ingin menghapus [Produk] dari keranjang?</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="confirmCancel()">Ya, Hapus</button>
+                <button class="cancel-btn" onclick="closeModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-notification" class="toast-notification"></div>
+
+    <footer>
+        <p>&copy; 2025 BINDERLAND. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        const waNumber = '6289608624923';
+        const instagramLink = 'https://www.instagram.com/binderland_?igsh=MXFkemNuc3NxOGw3aQ=='; // Tautan Instagram
+        
+        let itemToCancelIndex = null; // Variable to store the index of the item to be cancelled
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId + '-page').classList.add('active');
+
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            
+            if (sectionId === 'checkout') {
+                updateCheckoutSummary();
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            toast.innerText = message;
+            toast.className = 'toast-notification show';
+            setTimeout(() => {
+                toast.className = toast.className.replace('show', '');
+            }, 3000);
+        }
+
+        function addToCart(productName, price) {
+            const existingItem = cart.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1 });
+            }
+            showToast(`✅ ${productName} telah ditambahkan ke keranjang.`);
+            updateCart();
+            document.getElementById('cart-section').classList.add('show');
+        }
+
+        // FUNGSI BARU UNTUK MENAMBAH KUANTITAS
+        function increaseQuantity(index) {
+            cart[index].quantity++;
+            updateCart();
+            showToast(`Jumlah ${cart[index].name} ditambah.`);
+        }
+
+        // FUNGSI LAMA DIUBAH MENJADI MENGURANGI KUANTITAS
+        function decreaseQuantity(index) {
+            const item = cart[index];
+            if (item.quantity > 1) {
+                item.quantity--;
+                updateCart();
+                showToast(`Jumlah ${item.name} dikurangi.`);
+            } else {
+                // Jika kuantitas sudah 1, tampilkan modal konfirmasi hapus
+                itemToCancelIndex = index;
+                showCancelModal(item.name);
+            }
+        }
+        
+        function showCancelModal(productName) {
+            document.getElementById('modal-overlay').style.display = 'flex';
+            document.getElementById('modal-text').innerText = `Apakah Anda yakin ingin menghapus ${productName} dari keranjang?`;
+        }
+        
+        function confirmCancel() {
+            if (itemToCancelIndex !== null) {
+                const productName = cart[itemToCancelIndex].name;
+                cart.splice(itemToCancelIndex, 1);
+                updateCart();
+                closeModal();
+                showToast(`❌ ${productName} telah dihapus dari keranjang.`);
+                itemToCancelIndex = null;
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            itemToCancelIndex = null; // Reset index saat modal ditutup
+        }
+
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: #888;">Keranjang belanja Anda kosong.</p>';
+                document.getElementById('cart-section').classList.remove('show');
+            } else {
+                cart.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    const subtotal = item.price * item.quantity;
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <span>${item.name}</span>
+                            <div class="quantity-controls">
+                                <button onclick="decreaseQuantity(${index})">− </button>
+                                <span>${item.quantity}</span>
+                                <button onclick="increaseQuantity(${index})">+</button>
+                            </div>
+                        </div>
+                        <span class="cart-item-subtotal">Rp ${subtotal.toLocaleString('id-ID')}</span>
+                        <button class="remove-btn" onclick="decreaseQuantity(${index})">❌</button>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                    total += subtotal;
+                });
+                document.getElementById('cart-section').classList.add('show');
+            }
+            cartTotalElement.innerHTML = `Total: **Rp ${total.toLocaleString('id-ID')}**`;
+        }
+        
+        function updateCheckoutSummary() {
+            const checkoutItemsContainer = document.getElementById('checkout-items');
+            const checkoutTotalElement = document.getElementById('checkout-total');
+            checkoutItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                checkoutItemsContainer.innerHTML = '<p style="text-align: center; color: var(--secondary-color); font-weight: 600;">Keranjang belanja Anda kosong. Silakan kembali ke halaman produk.</p>';
+                document.getElementById('order-form').style.display = 'none';
+                document.getElementById('checkout-summary').style.display = 'none';
+                document.querySelector('.payment-options').style.display = 'none';
+                document.querySelector('.checkout-section h2').style.display = 'none';
+            } else {
+                document.querySelector('.checkout-section h2').style.display = 'block';
+                document.getElementById('order-form').style.display = 'block';
+                document.getElementById('checkout-summary').style.display = 'block';
+                document.querySelector('.payment-options').style.display = 'flex';
+                cart.forEach((item) => {
+                    const subtotal = item.price * item.quantity;
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
+                    `;
+                    checkoutItemsContainer.appendChild(itemElement);
+                    total += subtotal;
+                });
+            }
+            checkoutTotalElement.innerHTML = `Total: **Rp ${total.toLocaleString('id-ID')}**`;
+        }
+
+        // FUNGSI INI TETAP MENGIRIM KE WHATSAPP UNTUK SEMUA METODE
+        function processOrder(paymentMethod) {
+            const nama = document.getElementById('nama').value.trim();
+            const telepon = document.getElementById('telepon').value.trim();
+            const alamat = document.getElementById('alamat').value.trim();
+            
+            // Validation
+            if (!nama) { showToast('Nama lengkap tidak boleh kosong.'); return; }
+            if (!telepon) { showToast('Nomor telepon tidak boleh kosong.'); return; }
+            if (!alamat) { showToast('Alamat tidak boleh kosong.'); return; }
+
+            if (cart.length === 0) { showToast('Keranjang belanja Anda kosong!'); return; }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Generate list of items with quantity and subtotal for WhatsApp message
+            const listItems = cart.map(item => `- ${item.name} (x${item.quantity}) - Rp ${(item.price * item.quantity).toLocaleString('id-ID')}`).join('\n');
+            
+            let paymentText = '';
+            if (paymentMethod === 'dana') {
+                paymentText = 'DANA (Konfirmasi Pembayaran dan Transfer ke Admin)';
+            } else if (paymentMethod === 'cash') {
+                paymentText = 'Bayar di Tempat (Cash)';
+            }
+
+            const message = `Halo Admin BINDERLAND, saya ingin memesan produk berikut:%0A%0A*Data Pembeli:*%0A- Nama: ${nama}%0A- No. WA: ${telepon}%0A- Alamat: ${alamat}%0A%0A*Ringkasan Pesanan:*%0A${listItems}%0A%0A*Total Pembayaran:* Rp ${total.toLocaleString('id-ID')}%0A*Metode Pembayaran:* ${paymentText}%0A%0AMohon konfirmasi total pesanan dan ongkirnya. Terima kasih! 😊`;
+
+            // Semua metode pembayaran akan diarahkan ke WhatsApp untuk konfirmasi pesanan
+            const waUrl = `https://wa.me/${waNumber}?text=${message}`;
+            window.open(waUrl, '_blank');
+            showToast('Pesanan Anda sedang diproses dan dialihkan ke WhatsApp Admin.');
+        }
+
+        // FUNGSI BARU UNTUK KE INSTAGRAM
+        function goToInstagram() {
+            window.open(instagramLink, '_blank');
+            showToast('Anda dialihkan ke halaman Instagram BINDERLAND 📸');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+            updateCart();
+        });
+    </script>
+</body>
+</html>
